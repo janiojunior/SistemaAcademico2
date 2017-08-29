@@ -20,6 +20,13 @@
 		</style>
     </h:head>
     <h:body>
+	    
+	    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+ 
+		<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+		    <p:graphicImage name="/images/ajaxloading.gif" />
+		</p:dialog>
+		
         <p:layout id="layout" fullPage="true">
             
             	<p:layoutUnit position="north" size="80" styleClass="ui-top">
