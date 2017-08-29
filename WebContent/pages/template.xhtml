@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Controle de Acesso</title>
+        <style type="text/css">  
+		    .ui-widget {  
+		        font-size: 12px !important;  
+		    }  	
+			.ui-top, .ui-top .ui-layout, .ui-top .ui-layout-bd, .ui-top .ui-layout-unit, .ui-top .ui-layout-unit-content {
+			    background-color: #F1F1F1; 
+			}
+			.autocomplete400, .ui-autocomplete input {
+	 		   width:400px;
+			}	
+		</style>
+    </h:head>
+    <h:body>
+        <p:layout id="layout" fullPage="true">
+            
+            	<p:layoutUnit position="north" size="80" styleClass="ui-top">
+            		<ui:insert name="cabecalho">
+		        		<center><h1>Sistema Acadêmico</h1></center>
+		        	</ui:insert>
+		    	</p:layoutUnit>
+		    	
+		    	<p:layoutUnit position="west" size="200" styleClass="ui-top">
+		    		<h:form>
+			    		<p:panelMenu style="width:194px">
+				        <p:submenu label="Cadastro">
+				            <p:menuitem value="Alunos" action="/cadastroAluno.xhtml" ajax="false" icon="ui-icon-disk" />
+				            <p:menuitem value="Cidades" action="/cadastroCidade.xhtml" ajax="false" icon="ui-icon-arrowrefresh-1-w" />
+				        </p:submenu>
+					</p:panelMenu>
+				</h:form>
+		    	</p:layoutUnit>
+
+ 		    <p:layoutUnit position="center" style="border: none !important;">
+                   <ui:insert name="conteudo"/>
+		    </p:layoutUnit>
+
+		    <p:layoutUnit position="south"  size="30" styleClass="ui-top" >
+		    		<center>
+		    			<ui:insert name="conteudoRodape">
+                  		<h:outputText value="© 2017 UNITINS - Universidade Estadual do Tocantins. Todos os direitos reservados." />
+                  	</ui:insert>
+                  </center>
+                  
+		    </p:layoutUnit>
+		    	
+        </p:layout>
+    </h:body>
+</html>
