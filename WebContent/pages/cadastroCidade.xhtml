@@ -1,57 +1,52 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/pages/template.xhtml">
 
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Sistema Acadêmico</title>
-</h:head>
-<h:body>
+<ui:define name="conteudo">
+
 <f:view>
 <center>
-	<h2>.:Cadastro de Cidade:.</h2>
 
 	<h:form id="form">
-		<h:messages/>
+		<p:growl id="growl" showDetail="false" sticky="false"  life="5000" /> 
 		
-	    <hr/>
 	    	
-		<h:panelGrid id="pgDados" columns="2">
-		
-			<h:outputText value="Nome:" />
-			<h:inputText value="#{cidadeController.entity.nome}" />
+	    	<p:panel id="panel" header="Cadastro de Cidade">
+	    	
+			<p:panelGrid id="pgDados" columns="2" styleClass="semBorda" >
 			
-		</h:panelGrid>
+				<p:outputLabel value="Nome:" />
+				<p:inputText value="#{cidadeController.entity.nome}" />
+				
+			</p:panelGrid>
 
 
-		<h:commandButton value="Incluir" 
-			actionListener="#{cidadeController.insert}" 
-			disabled="#{cidadeController.entity.id != null}">
-			<f:ajax execute="form:pgDados" render="@form" />
-		</h:commandButton>
-		
-		<h:commandButton value="Alterar" 
-			actionListener="#{cidadeController.update}" 
-			disabled="#{cidadeController.entity.id == null}">
-			<f:ajax execute="form:pgDados" render="@form" />
-		</h:commandButton>
+			<p:commandButton value="Incluir" 
+				actionListener="#{cidadeController.insert}" 
+				disabled="#{cidadeController.entity.id != null}"
+				process="panel" update="form" />
+			
+			<p:commandButton value="Alterar" 
+				actionListener="#{cidadeController.update}" 
+				disabled="#{cidadeController.entity.id == null}"
+				process="panel" update="form" />
+	
+			<p:commandButton value="Excluir" 
+				actionListener="#{cidadeController.delete}" 
+				disabled="#{cidadeController.entity.id == null}"	
+				process="panel" update="form" />
+			
+			<p:commandButton value="Limpar" 
+				actionListener="#{cidadeController.clean}" 
+				process="panel" update="form" />
 
-		<h:commandButton value="Excluir" 
-			actionListener="#{cidadeController.delete}" 
-			disabled="#{cidadeController.entity.id == null}">		
-			<f:ajax execute="form:pgDados" render="@form" />
-		</h:commandButton>
-		
-		
-		<h:commandButton value="Limpar" actionListener="#{cidadeController.clean}" >
-			<f:ajax execute="form:pgDados" render="@form" />
-		</h:commandButton>
-		
-		<hr/>
-
+		</p:panel>			
 	
 	</h:form>
 </center>	
-</f:view>		
-</h:body>
-</html>
+</f:view>
+
+</ui:define>
+</ui:composition>

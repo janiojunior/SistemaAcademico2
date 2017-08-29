@@ -6,7 +6,7 @@
 	  xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>Controle de Acesso</title>
+        <title>Sistema Acadêmico</title>
         <style type="text/css">  
 		    .ui-widget {  
 		        font-size: 12px !important;  
@@ -17,7 +17,10 @@
 			.autocomplete400, .ui-autocomplete input {
 	 		   width:400px;
 			}	
+			
 		</style>
+		 <h:outputStylesheet name="geral.css"/>
+		 <h:outputStylesheet library="awesome" name="css/font-awesome.css" />  
     </h:head>
     <h:body>
 	    
@@ -39,8 +42,8 @@
 		    		<h:form>
 			    		<p:panelMenu style="width:194px">
 				        <p:submenu label="Cadastro">
-				            <p:menuitem value="Alunos" action="/cadastroAluno.xhtml" ajax="false" icon="ui-icon-disk" />
-				            <p:menuitem value="Cidades" action="/cadastroCidade.xhtml" ajax="false" icon="ui-icon-arrowrefresh-1-w" />
+				            <p:menuitem value="Alunos" action="/pages/cadastroAluno.xhtml" ajax="false" icon="ui-icon-disk" />
+				            <p:menuitem value="Cidades" action="/pages/cadastroCidade.xhtml" ajax="false" icon="ui-icon-disk" />
 				        </p:submenu>
 					</p:panelMenu>
 				</h:form>
