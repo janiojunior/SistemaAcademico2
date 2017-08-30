@@ -25,6 +25,7 @@
 				<p:selectOneMenu  value="#{alunoController.entity.cidade}"  
 					style="width:200px;" >  
 	                <f:converter converterId="cidadeConverter"/>
+	                <f:selectItem  itemLabel="Selecione uma cidade ..." />
 	                <f:selectItems value="#{alunoController.listaCidade}" var="o" itemLabel="#{o.nome}" itemValue="#{o}"/>  
 	            </p:selectOneMenu>
 	
@@ -51,8 +52,9 @@
 				actionListener="#{alunoController.clean}" 
 				process="panel" update="form" />
 				
-		</p:panel>			
-		
+		</p:panel>
+					
+		<br/><p:separator id="separator" /><br/>
 
 		<p:dataTable id="dataTable" value="#{alunoController.listaAluno}" var="objeto" widgetVar="dataTableWV" >	
 			<p:column>

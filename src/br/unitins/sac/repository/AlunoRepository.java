@@ -20,6 +20,7 @@ public class AlunoRepository extends Repository<Aluno>{
 		return Aluno.class;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Aluno> bucarTodos() {
 		
 		Query query = geEntityManager().createQuery("Select a From Aluno a Order by a.id Desc");
