@@ -7,6 +7,16 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+	
+		<!-- Framework -->	
+		<dependency>
+			<groupId>Framework</groupId>
+			<artifactId>Framework</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	
+		<!-- JSF -->
+	
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -58,7 +68,7 @@
 			<artifactId>font-awesome</artifactId>
 			<version>4.7.0</version>
 		</dependency>
-
+		
 	</dependencies>
 
 	<build>
