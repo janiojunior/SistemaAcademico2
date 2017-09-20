@@ -7,9 +7,11 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import javax.persistence.EntityManager;
 
+import br.unitins.frame.application.SelectionListener;
 import br.unitins.frame.controller.Controller;
 import br.unitins.frame.validation.Validation;
 import br.unitins.sac.factory.JPAFactory;
+import br.unitins.sac.listController.CidadeListController;
 import br.unitins.sac.model.Aluno;
 import br.unitins.sac.model.Cidade;
 import br.unitins.sac.repository.AlunoRepository;
@@ -47,6 +49,18 @@ public class AlunoController extends Controller<Aluno> {
 	@Override
 	protected EntityManager getEntityManager() {
 		return JPAFactory.getEntityManager();
+	}
+	
+	public void abrirListCidade(ActionEvent actionEvent) {
+		 
+		CidadeListController list = new CidadeListController();
+		list.openList(new SelectionListener<Cidade>() {
+			
+			@Override
+			public void select(Cidade entity) {
+				getEntity().setCidade(entity);
+			}
+		});
 	}
 
 	public List<Aluno> getListaAluno() {

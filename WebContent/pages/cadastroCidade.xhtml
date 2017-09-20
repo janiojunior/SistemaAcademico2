@@ -17,7 +17,11 @@
 	    	
 			<p:panelGrid id="pgDados" columns="2" styleClass="semBorda" >
 			
-				<p:outputLabel value="Nome:" />
+				<p:commandLink value="Nome:"
+					actionListener="#{cidadeController.abrirListCidade}" >
+					<p:ajax event="dialogReturn" update="form"  />
+				</p:commandLink>
+
 				<p:inputText value="#{cidadeController.entity.nome}" />
 				
 			</p:panelGrid>

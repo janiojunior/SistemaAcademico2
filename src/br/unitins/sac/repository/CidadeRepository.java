@@ -23,14 +23,26 @@ public class CidadeRepository extends Repository<Cidade>{
 	@SuppressWarnings("unchecked")
 	public List<Cidade> bucarTodos() {
 		
-		Query query = geEntityManager().createQuery("Select c From Cidade c Order by c.id Desc");
+		Query query = geEntityManager().createQuery("SELECT c FROM Cidade c ORDER BY c.id DESC");
 		List<Cidade> lista = query.getResultList();
 		
 		if (lista == null)
 			lista = new ArrayList<Cidade>();
 		
 		return lista;
-
 	}
+	
+	public List<Cidade> bucarCidades(String nome) {
+		
+		Query query = geEntityManager().createQuery("SELECT c FROM Cidade c WHERE c.nome LIKE ?1 ORDER BY c.nome");
+		query.setParameter(1, "%"+nome+"%");
+		List<Cidade> lista = query.getResultList();
+		
+		if (lista == null)
+			lista = new ArrayList<Cidade>();
+		
+		return lista;
+	}
+	
 	
 }

@@ -7,9 +7,11 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import javax.persistence.EntityManager;
 
+import br.unitins.frame.application.SelectionListener;
 import br.unitins.frame.controller.Controller;
 import br.unitins.frame.validation.Validation;
 import br.unitins.sac.factory.JPAFactory;
+import br.unitins.sac.listController.CidadeListController;
 import br.unitins.sac.model.Cidade;
 import br.unitins.sac.repository.CidadeRepository;
 import br.unitins.sac.validation.CidadeValidation;
@@ -41,6 +43,16 @@ public class CidadeController extends Controller<Cidade> {
 	public void clean(ActionEvent actionEvent) {
 		super.clean(actionEvent);
 		setListaCidade(null);
+	}
+	
+	public void abrirListCidade(ActionEvent actionEvent) {
+		CidadeListController list = new CidadeListController();
+		list.openList(new SelectionListener<Cidade>() {
+			@Override
+			public void select(Cidade entity) {
+				setEntity(entity);
+			}
+		});
 	}
 	
 	public List<Cidade> getListaCidade() {
