@@ -51,18 +51,7 @@ public class AlunoController extends Controller<Aluno> {
 		return JPAFactory.getEntityManager();
 	}
 	
-	public void abrirListCidade(ActionEvent actionEvent) {
-		 
-		CidadeListController list = new CidadeListController();
-		list.openList(new SelectionListener<Cidade>() {
-			
-			@Override
-			public void select(Cidade entity) {
-				getEntity().setCidade(entity);
-			}
-		});
-	}
-
+	
 	public List<Aluno> getListaAluno() {
 		if (listaAluno == null) {
 			AlunoRepository repository = new AlunoRepository(JPAFactory.getEntityManager());

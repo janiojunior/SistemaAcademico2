@@ -28,8 +28,6 @@ public class CidadeConverter implements Converter {
 	@Override
 	public String getAsString(FacesContext arg0, UIComponent arg1, Object arg2) {
 		if(arg2 != null) {
-			System.out.println(arg2.getClass().getName());
-
 			return ((Cidade) arg2).getId() == null ? "":((Cidade) arg2).getId().toString();
 		}
 		return "";

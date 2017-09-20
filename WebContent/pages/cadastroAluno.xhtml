@@ -20,12 +20,7 @@
 	
 				<p:outputLabel value="Nome:" />
 				<p:inputText value="#{alunoController.entity.nome}" style="width:215px;"/>
-				
-				<p:commandLink value="Nome:"
-					actionListener="#{alunoController.abrirListCidade}" >
-					<p:ajax event="dialogReturn" update="form"  />
-				</p:commandLink>
-				
+								
 				<p:outputLabel value="Natural de:" />
 				<p:selectOneMenu  value="#{alunoController.entity.cidade}"  
 					style="width:200px;" >  
